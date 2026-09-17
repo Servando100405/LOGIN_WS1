@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | HCCCI</title>
+    <link rel="stylesheet" href="{% static 'portal.css' %}">
+</head>
+<body class="portal-body">
+    <aside class="portal-sidebar admin-sidebar">
+        <img class="portal-logo" src="{% static 'hcci-logo.svg' %}" alt="HCCCI emblem">
+        <div class="sidebar-title">HCCCI ADMIN</div>
+        <nav class="portal-nav" aria-label="Admin navigation">
+            <a class="nav-link active" href="{% url 'admin_dashboard' %}">Overview</a>
+            <a class="nav-link" href="{% url 'admin:index' %}">Django Admin</a>
+            <a class="nav-link" href="#users">User accounts</a>
+        </nav>
+        <a class="nav-link logout-link" href="{% url 'logout' %}">Log out</a>
+    </aside>
+
+    <main class="portal-main">
+        <header class="portal-header">
+            <div>
+                <p class="eyebrow">Administration</p>
+                <h1>School account overview</h1>
+                <p class="muted">Manage HCCCI users and account roles.</p>
+            </div>
+            <div class="user-chip">{{ user.username|first|upper }}</div>
+        </header>
+
+        <section class="stat-grid" aria-label="Account statistics">
+            <article class="stat-card accent-card"><span class="stat-label">Total accounts</span><strong>{{ total_users }}</strong><span class="stat-note">Registered users</span></article>
+            <article class="stat-card"><span class="stat-label">Students</span><strong>{{ student_count }}</strong><span class="stat-note">Student accounts</span></article>
+            <article class="stat-card"><span class="stat-label">Teachers</span><strong>{{ teacher_count }}</strong><span class="stat-note">Teacher accounts</span></article>
+            <article class="stat-card"><span class="stat-label">Staff</span><strong>{{ staff_count }}</strong><span class="stat-note">Staff accounts</span></article>
+        </section>
+
+        <section class="portal-section" id="users">
+            <div class="section-heading"><div><p class="eyebrow">Latest activity</p><h2>Recent accounts</h2></div><a class="outline-btn" href="{% url 'admin:auth_user_changelist' %}">Manage users</a></div>
+            <div class="user-table-wrap">
+                <table class="user-table">
+                    <thead><tr><th>User</th><th>Joined</th><th>Status</th></tr></thead>
+                    <tbody>
+                        {% for account in recent_users %}
+                        <tr><td><strong>{{ account.get_full_name|default:account.username }}</strong><small>@{{ account.username }}</small></td><td>{{ account.date_joined|date:"M d, Y" }}</td><td><span class="status-pill">{% if account.is_active %}Active{% else %}Inactive{% endif %}</span></td></tr>
+                        {% empty %}<tr><td colspan="3">No accounts yet.</td></tr>{% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

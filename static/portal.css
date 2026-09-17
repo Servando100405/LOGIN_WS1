@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root {
+    --ink: #171128;
+    --muted: #766c88;
+    --paper: #f8f6fb;
+    --card: #ffffff;
+    --purple: #6e35b8;
+    --purple-dark: #31144f;
+    --line: #e8e1ef;
+    --gold: #d9b977;
+}
+
+* { box-sizing: border-box; }
+
+body.portal-body {
+    margin: 0;
+    min-height: 100vh;
+    color: var(--ink);
+    background: var(--paper);
+    font-family: 'DM Sans', sans-serif;
+}
+
+.portal-sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    width: 245px;
+    display: flex;
+    flex-direction: column;
+    padding: 28px 18px;
+    color: #fff;
+    background: linear-gradient(160deg, #241035, #51238a 65%, #7b40c4);
+}
+
+.staff-sidebar { background: linear-gradient(160deg, #173b4c, #236b78 65%, #3b9a91); }
+
+.portal-logo { width: 116px; height: 116px; object-fit: contain; margin: 0 auto 10px; }
+.sidebar-title { color: #f2ddae; font: 700 14px 'Space Grotesk', sans-serif; letter-spacing: 2px; text-align: center; }
+.portal-nav { display: grid; gap: 8px; margin-top: 42px; }
+.nav-link { color: #eee7f8; padding: 12px 14px; border-radius: 9px; text-decoration: none; font-size: 14px; transition: .2s ease; }
+.nav-link:hover, .nav-link.active { color: #fff; background: rgba(255,255,255,.14); }
+.logout-link { margin-top: auto; background: rgba(0,0,0,.14); }
+
+.portal-main { max-width: 1320px; margin-left: 245px; padding: 52px 7vw 70px; }
+.portal-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 22px; margin-bottom: 38px; }
+.eyebrow { margin: 0 0 8px; color: var(--purple); font-size: 11px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; }
+.portal-header h1, .section-heading h2 { margin: 0; font-family: 'Space Grotesk', sans-serif; color: var(--ink); }
+.portal-header h1 { font-size: clamp(28px, 4vw, 48px); letter-spacing: -.8px; }
+.muted { margin: 10px 0 0; color: var(--muted); }
+.user-chip { display: grid; place-items: center; flex: 0 0 46px; height: 46px; border-radius: 50%; color: #fff; background: var(--purple); font-weight: 700; }
+
+.stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 28px; }
+.stat-grid:has(.stat-card:nth-child(4)) { grid-template-columns: repeat(4, 1fr); }
+.stat-card { min-height: 142px; padding: 24px; border: 1px solid var(--line); border-radius: 12px; background: var(--card); box-shadow: 0 10px 30px rgba(39, 17, 65, .05); }
+.stat-card.accent-card { color: #fff; border-color: transparent; background: linear-gradient(135deg, #512187, #8b4ed1); }
+.stat-label, .stat-note { display: block; font-size: 12px; }
+.stat-label { color: var(--muted); font-weight: 600; }
+.accent-card .stat-label, .accent-card .stat-note { color: #e9dafa; }
+.stat-card strong { display: block; margin: 16px 0 8px; font: 700 28px 'Space Grotesk', sans-serif; }
+.stat-note { color: #988ca6; }
+
+.portal-section { margin-top: 22px; padding: 28px; border: 1px solid var(--line); border-radius: 12px; background: var(--card); }
+.section-heading { display: flex; align-items: center; justify-content: space-between; gap: 15px; margin-bottom: 24px; }
+.section-heading h2 { font-size: 25px; }
+.profile-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; overflow: hidden; border: 1px solid var(--line); border-radius: 9px; background: var(--line); }
+.profile-grid div { display: grid; gap: 7px; padding: 18px; background: #fff; }
+.profile-grid span { color: var(--muted); font-size: 12px; }
+.profile-grid strong { font-size: 15px; }
+.announcement-item { display: flex; gap: 14px; align-items: flex-start; padding: 18px; border-radius: 9px; background: #faf7ff; }
+.announcement-item strong { font-size: 15px; }
+.announcement-item p { margin: 6px 0 0; color: var(--muted); font-size: 14px; }
+.announcement-dot { width: 10px; height: 10px; margin-top: 5px; flex: 0 0 10px; border-radius: 50%; background: var(--gold); }
+.outline-btn { padding: 10px 14px; border: 1px solid #c9b6df; border-radius: 8px; color: var(--purple); text-decoration: none; font-size: 13px; font-weight: 700; }
+.user-table-wrap { overflow-x: auto; }
+.user-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.user-table th { color: var(--muted); font-size: 11px; letter-spacing: 1px; text-align: left; text-transform: uppercase; }
+.user-table th, .user-table td { padding: 14px 12px; border-bottom: 1px solid var(--line); }
+.user-table td small { display: block; margin-top: 4px; color: var(--muted); }
+.status-pill { display: inline-block; padding: 5px 10px; border-radius: 50px; color: #2b704c; background: #e8f7ee; font-size: 12px; font-weight: 700; }
+.staff-actions { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.action-card { display: grid; gap: 8px; padding: 20px; border: 1px solid var(--line); border-radius: 10px; color: var(--ink); text-decoration: none; background: #fcfaff; transition: .2s ease; }
+.action-card:hover { border-color: #bda4d8; background: #f7f0ff; transform: translateY(-2px); }
+.action-card strong { font-family: 'Space Grotesk', sans-serif; }
+.action-card span { color: var(--muted); font-size: 13px; line-height: 1.45; }
+
+@media (max-width: 850px) {
+    .portal-sidebar { position: static; width: auto; min-height: auto; padding: 18px; }
+    .portal-logo { width: 78px; height: 78px; }
+    .portal-nav { display: flex; flex-wrap: wrap; justify-content: center; margin-top: 20px; }
+    .logout-link { align-self: center; margin-top: 14px; }
+    .portal-main { margin-left: 0; padding: 34px 20px 50px; }
+    .stat-grid, .stat-grid:has(.stat-card:nth-child(4)) { grid-template-columns: repeat(2, 1fr); }
+    .staff-actions { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 540px) {
+    .portal-header { margin-bottom: 24px; }
+    .portal-header h1 { font-size: 30px; }
+    .stat-grid, .stat-grid:has(.stat-card:nth-child(4)), .profile-grid { grid-template-columns: 1fr; }
+    .portal-section { padding: 20px; }
+    .section-heading { align-items: flex-start; flex-direction: column; }
+}

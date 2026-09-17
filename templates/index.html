@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <main class="login-container welcome-container">
+        <section class="login-form welcome-form">
+            <div class="login-logo" aria-label="School logo">
+                <img class="brand-logo" src="{% static 'hcci-logo.svg' %}" alt="HCCCI emblem">
+            </div>
+            <h1>Welcome</h1>
+            <p>Sign in as a student or staff member, or create a new account.</p>
+            <div class="actions">
+                <a class="login-btn" href="{% url 'login' %}">Student / Staff Login</a>
+                <a class="secondary-btn" href="{% url 'register' %}">Create Account</a>
+                <a class="portal-link" href="{% url 'admin:index' %}">Administrator Login</a>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div class="login-container">
+        <form class="login-form register-form" method="post">
+            {% csrf_token %}
+
+            <h2>Create Account</h2>
+            <p>Welcome! Please create your account.</p>
+
+            <div class="login-logo" aria-label="School logo">
+                <img class="brand-logo" src="{% static 'hcci-logo.svg' %}" alt="HCCCI emblem">
+            </div>
+
+            <div class="input-group">
+                <label for="account_type">Account Type</label>
+                <select id="account_type" name="account_type" required>
+                    <option value="" selected disabled>Select account type</option>
+                    <option value="student">Student</option>
+                    <option value="teacher">Teacher</option>
+                    <option value="staff">Staff</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>First Name</label>
+                <input type="text" name="first_name" placeholder="Enter your first name" required>
+            </div>
+
+            <div class="input-group">
+                <label>Last Name</label>
+                <input type="text" name="last_name" placeholder="Enter your last name" required>
+            </div>
+
+            <div class="input-group">
+                <label>Username</label>
+                <input type="text" name="username" placeholder="Create a username" required>
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" name="password1" placeholder="Create a password" required>
+            </div>
+
+            <button type="submit" class="login-btn">SIGN UP</button>
+
+            {% if form.errors %}
+                <div class="form-errors">Please check your details and try again. Passwords must be at least 8 characters.</div>
+            {% endif %}
+
+            <p class="signup">
+                Already have an account?
+                <a href="{% url 'login' %}">Login</a>
+            </p>
+        </form>
+    </div>
+</body>
+</html>

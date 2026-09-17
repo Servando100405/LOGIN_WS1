@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard | HCCCI</title>
+    <link rel="stylesheet" href="{% static 'portal.css' %}">
+</head>
+<body class="portal-body">
+    <aside class="portal-sidebar">
+        <img class="portal-logo" src="{% static 'hcci-logo.svg' %}" alt="HCCCI emblem">
+        <div class="sidebar-title">HCCCI PORTAL</div>
+        <nav class="portal-nav" aria-label="Student navigation">
+            <a class="nav-link active" href="{% url 'dashboard' %}">Dashboard</a>
+            <a class="nav-link" href="#profile">My Profile</a>
+            <a class="nav-link" href="#announcements">Announcements</a>
+        </nav>
+        <a class="nav-link logout-link" href="{% url 'logout' %}">Log out</a>
+    </aside>
+
+    <main class="portal-main">
+        <header class="portal-header">
+            <div>
+                <p class="eyebrow">Student portal</p>
+                <h1>Welcome, {{ user.first_name|default:user.username }}</h1>
+                <p class="muted">Here is your school account overview.</p>
+            </div>
+            <div class="user-chip">{{ user.username|first|upper }}</div>
+        </header>
+
+        <section class="stat-grid" aria-label="Student summary">
+            <article class="stat-card accent-card"><span class="stat-label">Account type</span><strong>{{ profile.get_account_type_display }}</strong><span class="stat-note">Active account</span></article>
+            <article class="stat-card"><span class="stat-label">Account status</span><strong>Active</strong><span class="stat-note">Ready for school services</span></article>
+            <article class="stat-card"><span class="stat-label">Member since</span><strong>{{ user.date_joined|date:"M Y" }}</strong><span class="stat-note">HCCCI community</span></article>
+        </section>
+
+        <section class="portal-section" id="profile">
+            <div class="section-heading"><div><p class="eyebrow">Account information</p><h2>My Profile</h2></div></div>
+            <div class="profile-grid">
+                <div><span>Full name</span><strong>{{ user.get_full_name|default:"Not provided" }}</strong></div>
+                <div><span>Username</span><strong>{{ user.username }}</strong></div>
+                <div><span>Email</span><strong>{{ user.email|default:"Not provided" }}</strong></div>
+                <div><span>Role</span><strong>{{ profile.get_account_type_display }}</strong></div>
+            </div>
+        </section>
+
+        <section class="portal-section" id="announcements">
+            <div class="section-heading"><div><p class="eyebrow">Stay informed</p><h2>Announcements</h2></div></div>
+            <div class="announcement-item"><div class="announcement-dot"></div><div><strong>Welcome to the HCCCI student portal</strong><p>Your account is ready. School updates will appear here.</p></div></div>
+        </section>
+    </main>
+</body>
+</html>

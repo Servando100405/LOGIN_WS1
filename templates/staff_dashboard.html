@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Dashboard | HCCCI</title>
+    <link rel="stylesheet" href="{% static 'portal.css' %}">
+</head>
+<body class="portal-body">
+    <aside class="portal-sidebar staff-sidebar">
+        <img class="portal-logo" src="{% static 'hcci-logo.svg' %}" alt="HCCCI emblem">
+        <div class="sidebar-title">HCCCI STAFF</div>
+        <nav class="portal-nav" aria-label="Staff navigation">
+            <a class="nav-link active" href="{% url 'staff_dashboard' %}">Dashboard</a>
+            <a class="nav-link" href="#accounts">Accounts</a>
+            <a class="nav-link" href="#profile">My Profile</a>
+            {% if user.is_staff %}<a class="nav-link" href="{% url 'admin:index' %}">Django Admin</a>{% endif %}
+        </nav>
+        <a class="nav-link logout-link" href="{% url 'logout' %}">Log out</a>
+    </aside>
+
+    <main class="portal-main">
+        <header class="portal-header">
+            <div>
+                <p class="eyebrow">Staff portal</p>
+                <h1>Welcome, {{ user.first_name|default:user.username }}</h1>
+                <p class="muted">Manage school account activity from your staff workspace.</p>
+            </div>
+            <div class="user-chip">{{ user.username|first|upper }}</div>
+        </header>
+
+        <section class="stat-grid" aria-label="Staff summary">
+            <article class="stat-card accent-card"><span class="stat-label">Your role</span><strong>{{ profile.get_account_type_display }}</strong><span class="stat-note">Active staff account</span></article>
+            <article class="stat-card"><span class="stat-label">Total accounts</span><strong>{{ total_users }}</strong><span class="stat-note">Registered HCCCI users</span></article>
+            <article class="stat-card"><span class="stat-label">Students</span><strong>{{ student_count }}</strong><span class="stat-note">Student accounts</span></article>
+            <article class="stat-card"><span class="stat-label">Teachers</span><strong>{{ teacher_count }}</strong><span class="stat-note">Teacher accounts</span></article>
+        </section>
+
+        <section class="portal-section" id="accounts">
+            <div class="section-heading"><div><p class="eyebrow">Staff tools</p><h2>Account management</h2></div></div>
+            <div class="staff-actions">
+                <a class="action-card" href="{% url 'admin:auth_user_changelist' %}"><strong>View user accounts</strong><span>Review registered users and account status.</span></a>
+                <a class="action-card" href="{% url 'admin:accounts_profile_changelist' %}"><strong>Review account roles</strong><span>Manage student, teacher, and staff profiles.</span></a>
+            </div>
+        </section>
+
+        <section class="portal-section" id="profile">
+            <div class="section-heading"><div><p class="eyebrow">Account information</p><h2>My Profile</h2></div></div>
+            <div class="profile-grid">
+                <div><span>Full name</span><strong>{{ user.get_full_name|default:"Not provided" }}</strong></div>
+                <div><span>Username</span><strong>{{ user.username }}</strong></div>
+                <div><span>Role</span><strong>{{ profile.get_account_type_display }}</strong></div>
+                <div><span>Member since</span><strong>{{ user.date_joined|date:"M d, Y" }}</strong></div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

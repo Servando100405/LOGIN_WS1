@@ -1,0 +1,74 @@
+<svg width="620" height="480" viewBox="0 0 620 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="shieldFill" x1="310" y1="20" x2="310" y2="450" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#DED1AE"/>
+      <stop offset="1" stop-color="#D0C09B"/>
+    </linearGradient>
+    <linearGradient id="globeFill" x1="290" y1="115" x2="290" y2="220" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7AD7FF"/>
+      <stop offset="0.35" stop-color="#1A8BDF"/>
+      <stop offset="0.7" stop-color="#0C4FA7"/>
+      <stop offset="1" stop-color="#0A2E73"/>
+    </linearGradient>
+  </defs>
+
+  <g filter="url(#shadow)">
+    <path d="M310 18L505 66L532 252C530 316 473 394 310 462C147 394 90 316 88 252L115 66L310 18Z" fill="url(#shieldFill)" stroke="#0A1946" stroke-width="8"/>
+    <path d="M310 42L486 84L505 247C500 296 455 349 310 409C165 349 120 296 115 247L134 84L310 42Z" fill="none" stroke="#0A1946" stroke-width="6" opacity="0.75"/>
+  </g>
+
+  <g filter="url(#shadowSmall)">
+    <path d="M118 158C97 120 75 115 57 124C80 132 90 162 92 184C94 205 88 221 70 231C95 230 117 211 128 182C133 169 131 163 118 158Z" fill="#0A1946"/>
+    <path d="M115 155C135 118 160 112 174 120C154 126 145 158 146 181C146 203 155 220 177 230C152 228 128 211 118 181C113 169 110 163 115 155Z" fill="#0A1946"/>
+    <path d="M500 158C522 120 546 115 564 124C541 132 530 162 528 184C526 205 532 221 550 231C525 230 503 211 492 182C487 169 489 163 500 158Z" fill="#0A1946"/>
+    <path d="M503 155C483 118 458 112 444 120C464 126 473 158 472 181C472 203 463 220 441 230C466 228 490 211 500 181C505 169 508 163 503 155Z" fill="#0A1946"/>
+  </g>
+
+  <g>
+    <path d="M206 158C293 134 337 132 410 151C372 160 332 186 310 225C286 188 250 163 206 158Z" fill="#0A1946" opacity="0.9"/>
+    <path d="M168 153C244 129 292 131 348 151C322 159 272 194 256 230C238 197 203 171 168 153Z" fill="#0A1946" opacity="0.65"/>
+    <path d="M452 152C374 128 327 129 273 150C298 160 345 194 360 230C378 196 413 171 452 152Z" fill="#0A1946" opacity="0.65"/>
+  </g>
+
+  <g>
+    <path d="M258 139L313 92L368 139L313 180L258 139Z" fill="#0A1946"/>
+    <path d="M232 195L310 114L388 195V218H232V195Z" fill="#0A1946"/>
+    <path d="M250 183L310 128L370 183V214H250V183Z" fill="#0A1946"/>
+    <path d="M231 215H390L405 235L336 233L310 248L284 233L215 235L231 215Z" fill="#0A1946"/>
+    <path d="M282 230L260 300C276 288 295 282 310 282C325 282 344 288 360 300L338 230H282Z" fill="#0A1946"/>
+    <path d="M310 112L356 138L310 195L264 138L310 112Z" fill="#F3E9D4" opacity="0.15"/>
+  </g>
+
+  <g>
+    <circle cx="310" cy="200" r="74" fill="url(#globeFill)" stroke="#F2F1EE" stroke-width="6"/>
+    <path d="M310 128V272" stroke="#F3F0EB" stroke-width="4" opacity="0.8"/>
+    <path d="M236 200H384" stroke="#F3F0EB" stroke-width="4" opacity="0.8"/>
+    <path d="M262 156C276 176 286 190 310 198C332 189 345 176 358 156" stroke="#F3F0EB" stroke-width="4" opacity="0.8"/>
+    <path d="M258 244C273 226 286 215 310 209C333 215 347 226 362 244" stroke="#F3F0EB" stroke-width="4" opacity="0.8"/>
+    <path d="M258 156C274 175 289 190 310 200C330 190 347 174 362 156" stroke="#F3F0EB" stroke-width="4" opacity="0.8"/>
+    <path d="M212 190C243 176 274 169 310 168C346 169 377 176 408 190" stroke="#F3F0EB" stroke-width="4" opacity="0.7"/>
+    <path d="M213 210C242 224 273 231 309 233C345 231 377 224 407 210" stroke="#F3F0EB" stroke-width="4" opacity="0.7"/>
+  </g>
+
+  <g>
+    <path d="M215 256H405C394 267 380 277 365 285C341 297 323 304 310 304C297 304 279 297 255 285C240 277 226 267 215 256Z" fill="#0A1946" opacity="0.9"/>
+    <path d="M232 259C249 271 267 280 286 286C303 291 313 293 310 293C307 293 317 291 334 286C353 280 371 271 388 259H232Z" fill="#0A1946" opacity="0.8"/>
+    <path d="M219 260H401C400 296 371 326 310 348C249 326 220 296 219 260Z" fill="#0A1946"/>
+    <path d="M255 264H365V316C349 323 332 328 310 332C288 328 271 323 255 316V264Z" fill="#0A1946"/>
+    <path d="M245 279C262 285 281 289 298 291V310C281 308 267 305 252 298L245 279Z" fill="#F5F3EE" opacity="0.18"/>
+    <path d="M375 279C358 285 339 289 322 291V310C339 308 353 305 368 298L375 279Z" fill="#F5F3EE" opacity="0.18"/>
+  </g>
+
+  <g>
+    <text x="310" y="325" text-anchor="middle" font-family="Arial, sans-serif" font-size="54" font-weight="800" fill="#0A1946" letter-spacing="2">HCCCI</text>
+  </g>
+
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="170%">
+      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#000" flood-opacity="0.15"/>
+    </filter>
+    <filter id="shadowSmall" x="-20%" y="-20%" width="140%" height="170%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+</svg>
