@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <main>
+        <h1>Welcome, {{ display_name }}!</h1>
+        <h2>{{ role }} Dashboard</h2>
+        {% if role == 'Admin' %}
+            <p><a href="{% url 'admin:index' %}">Manage users and staff roles</a></p>
+        {% elif role == 'Staff' %}
+            <p>Staff account</p>
+        {% else %}
+            <p>Student account</p>
+        {% endif %}
+        <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit">Log out</button>
+        </form>
+    </main>
+</body>
+</html>

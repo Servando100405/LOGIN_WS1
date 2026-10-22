@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create account</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+<main class="login-container">
+    <form class="login-form" method="post" action="{% url 'register' %}">
+        {% csrf_token %}
+        <h2>Create account</h2>
+        <p>Enter your details to get started</p>
+        <div class="login-logo">
+            <img src="{% static 'logo.png' %}" alt="Account logo">
+        </div>
+        {% for message in messages %}
+            <p class="form-message" role="alert">{{ message }}</p>
+        {% endfor %}
+        <div class="input-group">
+            <label for="first_name">First name</label>
+            <input id="first_name" name="first_name" type="text" autocomplete="given-name">
+        </div>
+        <div class="input-group">
+            <label for="last_name">Last name</label>
+            <input id="last_name" name="last_name" type="text" autocomplete="family-name">
+        </div>
+        <div class="input-group">
+            <label for="username">Username</label>
+            <input id="username" name="username" type="text" autocomplete="username" required>
+        </div>
+        <div class="input-group">
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" autocomplete="new-password" required>
+        </div>
+        <div class="input-group">
+            <label for="password2">Confirm password</label>
+            <input id="password2" name="password2" type="password" autocomplete="new-password" required>
+        </div>
+        <button class="login-btn" type="submit">Create account</button>
+        <p class="signup">Already registered? <a href="{% url 'login' %}">Log in</a></p>
+    </form>
+</main>
+</body>
+</html>
