@@ -1,0 +1,11 @@
+LogInForm/
+venv/
+__pycache__/
+*.py[cod]
+*.sqlite3
+database.db
+db.sqlite3
+.env
+staticfiles/
+
+
